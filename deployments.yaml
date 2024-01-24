@@ -11,11 +11,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/instance: plex
+      app: plex
   template:
     metadata:
       labels:
-        app: plex-media-server
+        app: plex
     spec:
       hostNetwork: true
       affinity: {}
@@ -47,7 +47,7 @@ spec:
               gpu.intel.com/i915: "1" 
       initContainers: null
       nodeSelector: {}
-      serviceAccountName: plex-media-server
+      serviceAccountName: plex
       terminationGracePeriodSeconds: 120
       tolerations: []
       volumes:
