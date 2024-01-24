@@ -1,4 +1,4 @@
-_commit: v1.1.2-4-g8613986
+_commit: v1.1.2-6-ga043912
 _src_path: /Users/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
 backups: false
@@ -9,6 +9,7 @@ ingExtraAnnotations: ''
 ingHost: plex.crt.house
 ingName: plex
 ingPathType: Prefix
+ingSecret: crt.house
 ingWebSockets: false
 ingress: true
 labels: 'app: plex'
