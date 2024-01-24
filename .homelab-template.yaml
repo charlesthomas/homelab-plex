@@ -1,0 +1,40 @@
+_commit: v1.1.2
+_src_path: /Users/crthomas/code/charlesthomas/homelab-template
+additionalResources: ''
+backups: true
+helm: false
+ingClass: nginx-external
+ingExtraAnnotations: ''
+ingHost: plex.crt.house
+ingName: plex
+ingPathType: Prefix
+ingSvcName: plex
+ingSvcPortNum: 32400
+ingWebSockets: false
+ingress: true
+labels: 'app: plex'
+name: plex
+namespace: plex
+pvc: true
+pvcAccessMode: ReadWriteOnce
+pvcName: plex
+pvcSize: 25Gi
+pvcStorageClass: longhorn-retain
+resources:
+- deployments.yaml
+- ingresses.yaml
+- pvcs.yaml
+- service-accounts.yaml
+- services.yaml
+service: true
+serviceAccount: true
+svcAccountName: plex
+svcName: plex
+svcPortName: plex
+svcPortNum: 32400
+svcProtocol: TCP
+svcSelector: 'app: plex'
+svcTargetPort: plex
+svcType: ClusterIP
+upstreamURL: https://www.plex.tv/
+url: https://github.com/charlesthomas/homelab-plex

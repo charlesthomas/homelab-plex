@@ -1,0 +1,26 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: plex
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: plex.crt.house
+    external-dns.alpha.kubernetes.io/target: 
+    
+spec:
+  ingressClassName: nginx-external
+  rules:
+    - host: "plex.crt.house"
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: plex
+                port:
+                  number: 32400
+  tls:
+    - hosts:
+      - plex.crt.house
+
