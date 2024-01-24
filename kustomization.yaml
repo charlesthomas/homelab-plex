@@ -7,7 +7,6 @@ commonLabels:
   app: plex
 
 resources:
-- argocd-application.yaml
 - deployments.yaml
 - ingresses.yaml
 - namespaces.yaml
