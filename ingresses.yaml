@@ -24,4 +24,3 @@ spec:
     - hosts:
       - plex.crt.house
       secretName: crt.house
-
