@@ -1,0 +1,68 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    reloader.stakater.com/auto: "true"
+  labels:
+    app: plex
+  name: plex
+  namespace: plex
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: plex
+  template:
+    metadata:
+      labels:
+        app: plex-media-server
+    spec:
+      hostNetwork: true
+      affinity: {}
+      containers:
+      - env:
+        - name: ALLOWED_NETWORKS
+          value: 0.0.0.0/0.0.0.0
+        - name: TZ
+          value: America/Detroit
+        image: index.docker.io/plexinc/pms-docker:1.32.8.7639-fb6452ebf
+        imagePullPolicy: IfNotPresent
+        name: plex
+        ports:
+        - containerPort: 32400
+          name: plex
+        volumeMounts:
+        - mountPath: /config
+          name: pms-config
+        - mountPath: /transcode
+          name: pms-transcode
+        - mountPath: /media
+          name: media
+        - mountPath: /critical_media
+          name: critical-media
+        resources: 
+          requests: 
+              gpu.intel.com/i915: "1" 
+          limits: 
+              gpu.intel.com/i915: "1" 
+      initContainers: null
+      nodeSelector: {}
+      serviceAccountName: plex-media-server
+      terminationGracePeriodSeconds: 120
+      tolerations: []
+      volumes:
+      - name: pms-transcode
+        emptyDir: {}
+      - name: pms-config
+        persistentVolumeClaim:
+          claimName: plex-media-server
+      - name: media
+        nfs:
+          path: /volume1/media
+          readOnly: true
+          server: nas01.crt.house
+      - name: critical-media
+        nfs:
+          path: /volume1/critical/media
+          readOnly: true
+          server: nas01.crt.house
