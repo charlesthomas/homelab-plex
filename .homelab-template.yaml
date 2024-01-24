@@ -1,15 +1,14 @@
-_commit: v1.1.2
+_commit: v1.1.2-3-g5f04acf
 _src_path: /Users/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
-backups: true
+backups: false
 helm: false
 ingClass: nginx-external
+ingCname: crt.house
 ingExtraAnnotations: ''
 ingHost: plex.crt.house
 ingName: plex
 ingPathType: Prefix
-ingSvcName: plex
-ingSvcPortNum: 32400
 ingWebSockets: false
 ingress: true
 labels: 'app: plex'
@@ -17,7 +16,7 @@ name: plex
 namespace: plex
 pvc: true
 pvcAccessMode: ReadWriteOnce
-pvcName: plex
+pvcName: plex-media-server
 pvcSize: 25Gi
 pvcStorageClass: longhorn-retain
 resources:
