@@ -6,7 +6,13 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/hostname: plex.crt.house
     external-dns.alpha.kubernetes.io/target: crt.house
-    
+    gethomepage.dev/href: https://plex.crt.house
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: Media Player
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: plex
+    gethomepage.dev/name: Plex
+    gethomepage.dev/pod-selector: ""
 spec:
   ingressClassName: nginx-external
   rules:
