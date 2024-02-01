@@ -1,8 +1,13 @@
-_commit: v1.1.2-6-ga043912
-_src_path: /Users/crthomas/code/charlesthomas/homelab-template
+_commit: v1.3.6
+_src_path: ./homelab-template
 additionalResources: ''
 backups: false
 helm: false
+homepageDescription: Media Player
+homepageEnabled: true
+homepageGroup: Media
+homepageIcon: plex
+homepageName: Plex
 ingClass: nginx-external
 ingCname: crt.house
 ingExtraAnnotations: ''
@@ -20,6 +25,7 @@ pvcAccessMode: ReadWriteOnce
 pvcName: plex-media-server
 pvcSize: 25Gi
 pvcStorageClass: longhorn-retain
+reloader: false
 resources:
 - deployments.yaml
 - ingresses.yaml
