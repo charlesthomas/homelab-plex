@@ -22,10 +22,10 @@ spec:
       containers:
       - env:
         - name: ALLOWED_NETWORKS
-          value: 0.0.0.0/0.0.0.0
+          value: 192.168.1.0/255.255.255.0,10.42.0.0/255.255.0.0
         - name: TZ
           value: America/Detroit
-        image: index.docker.io/plexinc/pms-docker:1.40.0.7998-c29d4c0c8
+        image: plex
         imagePullPolicy: IfNotPresent
         name: plex
         ports:
