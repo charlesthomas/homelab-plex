@@ -3,20 +3,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: plex
+  namespace: plex
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: plex.crt.house
-    external-dns.alpha.kubernetes.io/target: crt.house
-    gethomepage.dev/href: https://plex.crt.house
-    gethomepage.dev/enabled: "true"
-    gethomepage.dev/description: Media Player
-    gethomepage.dev/group: Media
-    gethomepage.dev/icon: plex
-    gethomepage.dev/name: Plex
-    gethomepage.dev/pod-selector: ""
+    external-dns.alpha.kubernetes.io/hostname: plex.crt.lol
+    external-dns.alpha.kubernetes.io/target: crt.lol
 spec:
   ingressClassName: nginx-external
   rules:
-    - host: "plex.crt.house"
+    - host: "plex.crt.lol"
       http:
         paths:
           - path: "/"
@@ -28,5 +22,4 @@ spec:
                   number: 32400
   tls:
     - hosts:
-      - plex.crt.house
-      secretName: crt.house
+      - plex.crt.lol
