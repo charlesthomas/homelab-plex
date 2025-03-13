@@ -15,8 +15,30 @@ resources:
 - resources/pvcs.yaml
 - resources/service-accounts.yaml
 - resources/services.yaml
-
-images:
-  - name: plex
-    newName: plexinc/pms-docker
-    newTag: 1.41.5.9522-a96edc606
+patches:
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: all
+      namespace: plex
+      annotations:
+        reloader.stakater.com/auto: "true"
+  target:
+    kind: Deployment
+- patch: |-
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: plex
+      namespace: plex
+      annotations:
+        gethomepage.dev/href: https://plex.crt.lol
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/description: Media Player
+        gethomepage.dev/group: Media
+        gethomepage.dev/icon: plex
+        gethomepage.dev/name: Plex
+        gethomepage.dev/pod-selector: ""
+  target:
+    kind: Ingress
