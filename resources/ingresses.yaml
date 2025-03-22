@@ -7,6 +7,7 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/hostname: plex.crt.lol
     external-dns.alpha.kubernetes.io/target: crt.lol
+    uptime-kuma.autodiscovery.probe.path: /web/index.html#!/
 spec:
   ingressClassName: nginx-external
   rules:
