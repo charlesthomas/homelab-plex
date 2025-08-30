@@ -11,7 +11,7 @@ commonLabels:
 images:
   - name: plex
     newName: plexinc/pms-docker
-    newTag: 1.41.5.9522-a96edc606
+    newTag: 1.42.1.10060-4e8b05daf
 
 resources:
 - resources/deployments.yaml
