@@ -18,7 +18,15 @@ spec:
         app: plex
     spec:
       hostNetwork: true
-      affinity: {}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-role.kubernetes.io/etcd
+                operator: In
+                values:
+                - "true"
       containers:
       - env:
         - name: ALLOWED_NETWORKS
