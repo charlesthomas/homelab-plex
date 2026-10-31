@@ -5,8 +5,10 @@ namespace: plex
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-plex
-commonLabels:
-  app: plex
+labels:
+- includeSelectors: true
+  pairs:
+    app: plex
 
 images:
   - name: plex
@@ -49,3 +51,11 @@ patches:
         gethomepage.dev/pod-selector: ""
   target:
     kind: Ingress
+configMapGenerator:
+- name: grafana-dashboard-plex
+  files:
+  - grafana/plex.json
+  options:
+    disableNameSuffixHash: true
+    labels:
+      grafana_dashboard: "1"
