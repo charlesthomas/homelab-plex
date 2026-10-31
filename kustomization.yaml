@@ -5,8 +5,10 @@ namespace: plex
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-plex
-commonLabels:
-  app: plex
+labels:
+- includeSelectors: true
+  pairs:
+    app: plex
 
 images:
   - name: plex
